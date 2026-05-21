@@ -1,0 +1,132 @@
+<!-- status.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectHub - User Profile</title>
+
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <h2>ConnectHub</h2>
+            </div>
+		<li>
+    			<a href="#" onclick="logout()">
+      			  Logout
+    			</a>
+		</li>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Achievements</a></li>
+                    <li><a href="#">Messages</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Profile Card -->
+            <section class="profile-card">
+
+                <div class="profile-header">
+
+                    <img
+                        src="https://via.placeholder.com/150"
+                        alt="Profile Picture"
+                        class="profile-image"
+                    >
+
+                    <div class="profile-info">
+
+                        <h1 id="userName"></h1>
+
+                        <p id="userPosition">
+                          </p>
+
+                        <p id="userDepartment">
+                            
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Status Update -->
+                <div class="status-section">
+
+                    <textarea
+                        id="statusInput"
+                        placeholder="Update your status..."
+                    ></textarea>
+
+                    <button onclick="updateStatus()">
+                        Post Status
+                    </button>
+
+                </div>
+
+                <div class="status-display">
+                    <h3>Current Status</h3>
+
+                    <p id="statusMessage">
+                        
+                    </p>
+                </div>
+
+                <!-- Interests -->
+                <div class="interests">
+
+                    <h3>Interests</h3>
+
+                    <div class="interest-tags">
+                        
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Achievements -->
+            <section class="achievement-section">
+
+                <div class="section-header">
+
+                    <h2>Achievements</h2>
+
+                    <button onclick="addAchievement()">
+                        Add Achievement
+                    </button>
+
+                </div>
+
+                <div id="achievementList">
+
+                    <div class="achievement-card">
+                        
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>
