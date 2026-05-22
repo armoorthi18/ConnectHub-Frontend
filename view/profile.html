@@ -1,0 +1,167 @@
+<!-- view/profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ConnectHub - Update Profile</title>
+
+    <link rel="stylesheet"
+          href="../style/style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>ConnectHub</h2>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="status.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profile.html">
+                        Update Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Achievements
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Messages
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Settings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#"
+                       onclick="logout()">
+
+                        Logout
+
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <section class="profile-card">
+
+            <h2>Update Profile</h2>
+
+            <div class="update-profile-form">
+
+                <!-- Profile Image -->
+
+                <div class="profile-preview">
+
+                    <img
+                        id="profilePreview"
+                        src=""
+                        alt="Profile Picture"
+                        class="profile-image"
+                    >
+
+                </div>
+
+                <!-- Full Name -->
+
+                <input
+                    type="text"
+                    id="updateFullName"
+                    placeholder="Full Name"
+                >
+
+                <!-- Department -->
+
+                <input
+                    type="text"
+                    id="updateDepartment"
+                    placeholder="Department"
+                >
+
+                <!-- Position -->
+
+                <input
+                    type="text"
+                    id="updatePosition"
+                    placeholder="Position"
+                >
+
+                <!-- Interests -->
+
+                <input
+                    type="text"
+                    id="updateInterests"
+                    placeholder="Interests (comma separated)"
+                >
+
+                <!-- Profile Picture -->
+
+                <input
+                    type="text"
+                    id="updateProfilePicture"
+                    placeholder="Profile Picture URL"
+                    oninput="previewImage()"
+                >
+
+                <!-- Save Button -->
+
+                <button onclick="updateProfile()">
+
+                    Save Profile
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="../js/profile.js"></script>
+
+</body>
+
+</html>

@@ -1,7 +1,6 @@
-<!-- login.html -->
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,9 +8,10 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>ConnectHub Login</title>
+    <title>ConnectHub Signup</title>
 
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet"
+          href="../style/style.css">
 
 </head>
 
@@ -23,33 +23,32 @@
 
         <h1>ConnectHub</h1>
 
-        <p>Employee Login</p>
+        <p>Employee Signup</p>
 
-        <form id="loginForm">
+        <form id="signupForm">
+
+            <input type="text"
+                   id="fullName"
+                   placeholder="Full Name"
+                   required>
 
             <input type="email"
                    id="email"
-                   placeholder="Enter Email"
+                   placeholder="Email"
                    required>
 
             <input type="password"
                    id="password"
-                   placeholder="Enter Password"
+                   placeholder="Password"
                    required>
 
             <button type="submit">
-                Login
+
+                Register
+
             </button>
- 	<!-- SIGNUP BUTTON -->
 
-    	<button type="button"
-            class="signup-btn"
-            onclick="goToSignup()">
-
-      	 	 Signup
-    	</button>
-
-            <p id="errorMessage"></p>
+            <p id="message"></p>
 
         </form>
 
@@ -57,7 +56,7 @@
 
 </div>
 
-<script src="../js/login.js"></script>
+<script src="../js/signup.js"></script>
 
 </body>
 </html>

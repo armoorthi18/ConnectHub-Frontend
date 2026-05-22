@@ -43,13 +43,14 @@ document.getElementById("loginForm")
 
         if(response.ok) {
 
-            const token = await response.text();
+            const token =
+                    await response.text();
+		 // STORE TOKEN
 
-            // Store JWT Token
-            localStorage.setItem(
-                "token",
-                token
-            );
+                localStorage.setItem(
+                    "token",
+                    token
+                );
 
             // Redirect to profile page
             window.location.href = "../view/status.html";
@@ -62,9 +63,15 @@ document.getElementById("loginForm")
 
     } catch(error) {
 
-
+	alert(error);
         errorMessage.innerText =
-            "Server Error";
+            "Server Error" + error;
     }
 
 });
+
+function goToSignup() {
+
+    window.location.href =
+        "../view/signup.html";
+}

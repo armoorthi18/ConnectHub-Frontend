@@ -8,6 +8,42 @@
 
 /* Add into style/style.css */
 
+.update-profile-form {
+
+    margin-top: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.update-profile-form input {
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    border: 1px solid #ccc;
+}
+
+.update-profile-form button {
+
+    padding: 12px;
+
+    background-color: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
 /* LOGIN PAGE */
 
 .login-container {
@@ -287,4 +323,30 @@ body {
         text-align: center;
     }
 
+}
+
+.signup-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    background-color: #16a34a;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+.signup-btn:hover {
+
+    background-color: #15803d;
 }
