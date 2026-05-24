@@ -12,10 +12,6 @@ if(!token) {
 
 async function loadProfile() {
 
-    console.log("LOAD PROFILE CALLED");
-
-    console.log("TOKEN:", token);
-
     try {
 
         const response = await fetch(
@@ -35,23 +31,13 @@ async function loadProfile() {
             }
         );
 
-        console.log(
-            "RESPONSE STATUS:",
-            response.status
-        );
-
+        
         const responseText =
             await response.text();
 
-        console.log(
-            "RESPONSE TEXT:",
-            responseText
-        );
-
-        const user =
+          const user =
             JSON.parse(responseText);
 
-        console.log("USER:", user);
 
         // USER NAME
 
@@ -249,7 +235,7 @@ async function updateStatus() {
 
     } catch(error) {
 
-        console.error(error);
+        alert(error);
     }
 }
 
@@ -377,7 +363,12 @@ function logout() {
 
 
 // Load on Page Start
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-loadProfile();
+        loadProfile();
 
-loadAchievements();
+        loadAchievements();
+    }
+);

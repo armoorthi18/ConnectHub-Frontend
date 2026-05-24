@@ -187,6 +187,12 @@ function logout() {
 }
 
 
-// Initial Load
+// INITIAL LOAD
 
-loadProfile();
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        loadProfile();
+    }
+);

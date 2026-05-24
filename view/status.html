@@ -10,7 +10,8 @@
 </head>
 <body>
 
-    <div class="container">
+    
+	<div class="dashboard-container">
 
         <!-- Sidebar -->
         <aside class="sidebar">
@@ -41,7 +42,7 @@
 
         </aside>
 
-        <!-- Main Content -->
+	 <!-- Main Content -->
         <main class="main-content">
 
             <!-- Profile Card -->
@@ -125,19 +126,92 @@
 
                 <div id="achievementList">
 
-                    <div class="achievement-card">
-                        
-                    </div>
-
                 </div>
 
             </section>
 
         </main>
+	 <!-- FEED SECTION -->
+
+    <main class="feed-section">
+
+        <!-- Create Post -->
+
+        <section class="create-post-card">
+
+            <textarea
+                id="postContent"
+                placeholder="Share company updates, achievements, ideas..."
+            ></textarea>
+
+            <button onclick="createPost()">
+
+                Create Post
+
+            </button>
+
+        </section>
+
+
+        <!-- Feed -->
+
+        <section class="feed-container">
+
+            <h2>Company Feed</h2>
+
+            <div id="postFeed">
+
+                
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- NOTIFICATIONS -->
+
+    <aside class="notification-panel">
+
+        <h3>Notifications</h3>
+
+        <div id="notificationList">
+
+            <div class="notification-item">
+
+                🎉 Today is Arun's Birthday
+
+            </div>
+
+            <div class="notification-item">
+
+                📢 HR announced new leave policy
+
+            </div>
+
+            <div class="notification-item">
+
+                📅 Team meeting at 4 PM
+
+            </div>
+
+            <div class="notification-item">
+
+                👍 Your achievement received 12 likes
+
+            </div>
+
+        </div>
+
+    </aside>
+
+       
 
     </div>
 
     <script src="../js/script.js"></script>
+    <script src="../js/posts.js"></script>
 
 </body>
 </html>

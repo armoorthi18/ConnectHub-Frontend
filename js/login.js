@@ -23,6 +23,33 @@ document.getElementById("loginForm")
     const errorMessage =
         document.getElementById("errorMessage");
 
+ // CLEAR OLD ERROR
+
+            errorMessage.innerText = "";
+
+            // EMAIL VALIDATION
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if(!emailPattern.test(email)) {
+
+                errorMessage.innerText =
+                    "Please enter valid email address";
+
+                return;
+            }
+
+            // PASSWORD VALIDATION
+
+            if(password.length < 4) {
+
+                errorMessage.innerText =
+                    "Password must be minimum 4 characters";
+
+                return;
+            }
+
     try {
 
         const response = await fetch(
