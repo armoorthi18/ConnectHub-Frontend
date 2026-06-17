@@ -159,11 +159,19 @@
 
             <h2>Company Feed</h2>
 
-            <div id="postFeed">
+           <div id="postFeed">
 
-                
+    	<div class="post-card" th:each="post : ${posts}">
 
-            </div>
+        <h4 th:text="${post.username}"></h4>
+
+        <p th:text="${post.content}"></p>
+
+        <small th:text="${post.createdAt}"></small>
+
+    	</div>
+
+	</div>
 
         </section>
 

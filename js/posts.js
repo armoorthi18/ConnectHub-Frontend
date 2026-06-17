@@ -1,155 +1,85 @@
-// SAMPLE POSTS
+async function loadTodayPosts() {
 
-const posts = [
+    try {
+	const token = localStorage.getItem("token");
+	
+        const response = await fetch("http://localhost:8080/posts/today", {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer " + token
+            }
+        });
+	
+        if (!response.ok) {
+            console.error("Failed to load posts:", response.status);
+            return;
+        }
+	
 
-    {
-        user: "Mathi Vanan",
+        const posts = await response.json();
+	
 
-        position: "Senior Software Developer",
+        const feed = document.getElementById("postFeed");
+        feed.innerHTML = "";
 
-        profile:
-            "https://i.pravatar.cc/150?img=12",
-
-        content:
-            "Successfully integrated JWT Authentication into ConnectHub 🚀"
-    },
-
-    {
-        user: "Arun Kumar",
-
-        position: "HR Manager",
-
-        profile:
-            "https://i.pravatar.cc/150?img=15",
-
-        content:
-            "Reminder: Team outing this Friday 🎉"
-    }
-];
-
-
-// LOAD POSTS
-
-function loadPosts() {
-
-    const postFeed =
-        document.getElementById(
-            "postFeed"
-        );
-
-    if(!postFeed) {
-
-        console.log(
-            "postFeed not found"
-        );
-
-        return;
-    }
-
-    postFeed.innerHTML = "";
-
-    posts.forEach(post => {
-
-        const card =
-            document.createElement(
-                "div"
-            );
-
-        card.className =
-            "post-card";
-
-        card.innerHTML = `
-
-            <div class="post-header">
-
-                <img
-                    src="${post.profile}"
-                    class="profile-image"
-                >
-
-                <div>
-
-                    <h4>${post.user}</h4>
-
-                    <p>${post.position}</p>
-
+        posts.forEach(post => {
+            feed.innerHTML += `
+                <div class="post-card">
+                    <h4>${post.username}</h4>
+                    <p>${post.content}</p>
+                    <small>${post.createdAt}</small>
                 </div>
+            `;
+        });
 
-            </div>
-
-            <div class="post-content">
-
-                ${post.content}
-
-            </div>
-
-            <div class="post-actions">
-
-                <button>
-                    👍 Like
-                </button>
-
-                <button>
-                    💬 Comment
-                </button>
-
-                <button>
-                    🔁 Share
-                </button>
-
-            </div>
-        `;
-
-        postFeed.appendChild(card);
-    });
+    } catch (error) {
+        console.error(error);
+    }
 }
+async function createPost() {
 
+    const content = document.getElementById("postContent").value;
 
-// CREATE POST
+    
 
-function createPost() {
-
-    const content =
-        document.getElementById(
-            "postContent"
-        ).value;
-
-    if(!content.trim()) {
-
-        alert(
-            "Please enter content"
-        );
-
+    if (!content.trim()) {
+        alert("Enter a post");
         return;
     }
 
-    posts.unshift({
+    const formData = new URLSearchParams();
+    formData.append("content", content);
+    const token = localStorage.getItem("token");
+   
 
-        user: "Mathi Vanan",
+    try {
 
-        position:
-            "Senior Software Developer",
+        const response = await fetch("http://localhost:8080/posts/create", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+		"Authorization": "Bearer " + token
+            },
+            body: formData.toString()
+        });
 
-        profile:
-            "https://i.pravatar.cc/150?img=12",
+        console.log("After fetch");
+        console.log("Status:", response.status);
 
-        content: content
-    });
+        if (response.ok) {
+            document.getElementById("postContent").value = "";
+            loadTodayPosts();
+        } else {
+            console.log("Request failed");
+        }
 
-    document.getElementById(
-        "postContent"
-    ).value = "";
+    } catch (error) {
 
-    loadPosts();
-}
+        console.error("Fetch Error:", error);
+        alert(error);
 
-
-// INITIAL LOAD
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        loadPosts();
     }
-);
+}
+window.onload = function() {
+    loadTodayPosts();
+};
