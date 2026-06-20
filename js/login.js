@@ -1,13 +1,3 @@
-// Check Login
-
-const token = localStorage.getItem("token");
-
-if(!token) {
-
-    window.location.href = "../view/login.html";
-}
-
-
 document.getElementById("loginForm")
     .addEventListener("submit", async function(event) {
 
@@ -70,14 +60,12 @@ document.getElementById("loginForm")
 
         if(response.ok) {
 
-            const token =
-                    await response.text();
-		 // STORE TOKEN
-
-                localStorage.setItem(
-                    "token",
-                    token
-                );
+            
+const data = await response.json();
+	
+localStorage.setItem("token", data.token);
+localStorage.setItem("role", data.role);
+localStorage.setItem("fullName", data.fullName);
 
             // Redirect to profile page
             window.location.href = "../view/status.html";

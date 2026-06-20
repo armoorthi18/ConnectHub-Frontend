@@ -8,6 +8,22 @@ if(!token) {
 }
 
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const role = localStorage.getItem("role");
+
+    if (role && role.toUpperCase() === "ADMIN") {
+
+        const adminMenu =
+            document.getElementById("adminMenu");
+
+        if (adminMenu) {
+            adminMenu.style.display = "block";
+        }
+    }
+});
+
+
 // Load Profile
 
 async function loadProfile() {
